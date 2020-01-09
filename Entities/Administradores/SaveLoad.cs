@@ -13,6 +13,10 @@ namespace Visualizador_de_Renda.Entities.Administradores {
             d.Saldo = Carteira.PegarSaldo();
             d.ListaDeItemsComprados = AdministradorDeGastos.PegarTodosOsRecibos();
             d.IDAtual = AdministradorDeGastos.IDAtual;
+            d.RA = Carteira.RA;
+            d.ctps = Carteira.CTPS;
+            d.tituloDeEleitor = Carteira.TituloDeEleitor;
+            d.SUS = Carteira.SUS;
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             Stream stream = new FileStream("..\\..\\Data\\carteira.bin", FileMode.Create);
@@ -33,7 +37,7 @@ namespace Visualizador_de_Renda.Entities.Administradores {
 
             DadosImportantes d = (DadosImportantes)binaryFormatter.Deserialize(stream);
             AdministradorDeGastos.CarregarListaExistente(d.IDAtual, d.ListaDeItemsComprados);
-            Carteira.CriarNovaCarteira(d.Proprietario, d.RG, d.CPF, d.Saldo);
+            Carteira.CriarNovaCarteira(d.Proprietario, d.RG, d.CPF, d.Saldo, d.RA, d.SUS, d.ctps, d.tituloDeEleitor);
             stream.Close();
         }
     }

@@ -18,7 +18,8 @@ namespace Visualizador_de_Renda {
             lbl_Log.Text = "Lista de novas funcionalidades\n"
                 + "1 - Adionar lista de desejos que ao marcar, deverar entrar para a lista principal\n"
                 + "2 - Adicionar sistema de log in, só porque sim\n"
-                + "3 - \n"
+                + "3 - A janela de editar carteira deverá aparecer \"Aprovado\" de verde ou \"Reprovado\" de vermelho durante o preenchimento\n"
+                + "4 - Consertar a janela da carteira para mostrar TODOS os dados\n"
                 + "Obs: As funcionalidades não chegaram na ordem listada.";
         }
     }
