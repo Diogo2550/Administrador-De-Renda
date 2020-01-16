@@ -14,7 +14,7 @@ namespace Visualizador_de_Renda.Entities {
 
         public override string ImprimirInformacao() {
             string informacao = "Nome: " + Nome + "\n"
-                                + "Valor: " + Total + "\n"
+                                + "Valor: " + Total.ToString("F2") + "\n"
                                 + "Data do pagamento: " + DataDaCompra.ToString("dd/MM/yyyy") + "\n"
                                 + "Tipo: " + Tipo;
             return informacao;

@@ -3,6 +3,7 @@
         Salario,
         Conta,
         CompraDeProduto,
+        Desejo,
         Outro
     }
 }

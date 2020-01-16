@@ -12,6 +12,8 @@ using Visualizador_de_Renda.Entities.Enums;
 
 namespace Visualizador_de_Renda.Entities {
     public partial class AdicionarProduto : Form {
+        public static bool isDesejo;
+
         private Tipo tipo;
         private string lembreteDefault = "Caso necessário, informe um lembrete desejado";
         private string errorMessage = "Algum dos campos está incorreto";
@@ -50,7 +52,7 @@ namespace Visualizador_de_Renda.Entities {
 
                 Recibo recibo;
 
-                if(tipo == Tipo.CompraDeProduto) {
+                if(tipo == Tipo.CompraDeProduto || tipo == Tipo.Desejo) {
                     if(lembrete == lembreteDefault || lembrete == "")
                         recibo = new Produto(nome, quantidade, preco, DateTime.Now, importancia, tipo);
                     else
@@ -61,7 +63,10 @@ namespace Visualizador_de_Renda.Entities {
                     recibo = new Salario(preco, dateTime, tipo);
                 }
 
-                AdministradorDeGastos.AdicionarRecibo(recibo);
+                if(cbb_Tipo.SelectedItem.ToString() == Tipo.Desejo.ToString())
+                    AdministradorDeGastos.AdicionarRecibo(recibo, TipoDeLista.ListaDeDesejo);
+                else
+                    AdministradorDeGastos.AdicionarRecibo(recibo);
 
                 Close();
             } else {
@@ -100,8 +105,15 @@ namespace Visualizador_de_Renda.Entities {
             AdicionarItemAComboBox(cbb_Tipo, Tipo.CompraDeProduto);
             AdicionarItemAComboBox(cbb_Tipo, Tipo.Salario);
             AdicionarItemAComboBox(cbb_Tipo, Tipo.Conta);
+            AdicionarItemAComboBox(cbb_Tipo, Tipo.Desejo);
             AdicionarItemAComboBox(cbb_Tipo, Tipo.Outro);
-            cbb_Tipo.SelectedIndex = 0;
+
+            if(isDesejo) {
+                cbb_Tipo.SelectedIndex = 3;
+                txb_Nome.Select();
+            } else {
+                cbb_Tipo.SelectedIndex = 0;
+            }
         }
 
         private bool CamposDevidamentePreenchidos() {

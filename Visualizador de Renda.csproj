@@ -53,8 +53,11 @@
       <DependentUpon>AdicionarCarteira.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Administradores\SaveLoad.cs" />
+    <Compile Include="Entities\Documentos\CartaoDeCredito.cs" />
     <Compile Include="Entities\Documentos\CTPS.cs" />
     <Compile Include="Entities\Documentos\TituloDeEleitor.cs" />
+    <Compile Include="Entities\Enums\TipoDeLista.cs" />
+    <Compile Include="Layout\Controle.cs" />
     <Compile Include="Entities\Recibos\Conta.cs" />
     <Compile Include="Entities\DadosImportantes.cs" />
     <Compile Include="Entities\Recibo.cs" />

@@ -39,5 +39,9 @@ namespace Visualizador_de_Renda.Entities {
             return informacao;
         }
 
+        public void DesejoRealizado() {
+            Tipo = Tipo.CompraDeProduto;
+        }
+
     }
 }
